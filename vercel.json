@@ -2,7 +2,19 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/api/auth/login",
+      "destination": "https://userauth.revolutioninfosystems.com/api/UserAuthAPI/valuser"
+    },
+    {
+      "source": "/api/auth/change-password",
+      "destination": "https://userauth.revolutioninfosystems.com/api/UserAuthAPI/changepass"
+    },
+    {
+      "source": "/api/analog/:path*",
+      "destination": "https://117.247.49.204/AppAnalogTagSVR/:path*"
+    },
+    {
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ]
