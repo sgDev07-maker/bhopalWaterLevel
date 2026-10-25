@@ -10,23 +10,14 @@ export function DashboardPage() {
 
   return (
     <div>
-      <h1 className="mb-4 text-2xl font-semibold">Dashboard</h1>
-      <section className="mb-6 grid grid-cols-2 gap-3 md:grid-cols-4">
+      <h1 className="mb-3 text-2xl font-semibold">Dashboard</h1>
+      <section className="mb-4 grid grid-cols-2 gap-2 lg:grid-cols-4">
         <SummaryCard label="Total Tanks" value={String(tanks.summary.tanks)} />
-        <SummaryCard
-          label="Average Level"
-          value={formatPercent(tanks.summary.avg)}
-        />
-        <SummaryCard
-          label="Total Capacity"
-          value={formatKl(tanks.summary.totalCapacity)}
-        />
-        <SummaryCard
-          label="Available Water"
-          value={formatKl(tanks.summary.totalAvailable)}
-        />
+        <SummaryCard label="Average Level" value={formatPercent(tanks.summary.avg)} />
+        <SummaryCard label="Total Capacity" value={formatKl(tanks.summary.totalCapacity)} />
+        <SummaryCard label="Available Water" value={formatKl(tanks.summary.totalAvailable)} />
       </section>
-      <h2 className="mb-3 text-xl font-semibold">Water Tanks</h2>
+      <h2 className="mb-3 text-lg font-semibold">Water Tanks</h2>
       <TankFilters
         search={tanks.search}
         onSearch={tanks.setSearch}
@@ -39,7 +30,9 @@ export function DashboardPage() {
         onAutoRefresh={tanks.setAutoRefresh}
         onRefresh={() => void tanks.loadReadings(true)}
       />
-      <ErrorMessage message={tanks.notice} />
+      <div className="mb-3">
+        <ErrorMessage message={tanks.notice} />
+      </div>
       <TankTable
         tanks={tanks.filtered}
         loading={tanks.loading}

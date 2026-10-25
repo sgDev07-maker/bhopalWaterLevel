@@ -1,7 +1,42 @@
 @import 'tailwindcss';
 
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --app-header: 3.5rem;
+  --app-tabbar: 4.25rem;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background: #e8eef3;
+  color: #1e293b;
+  -webkit-tap-highlight-color: rgb(12 74 110 / 0.12);
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  touch-action: manipulation;
+}
+
+input,
+select,
+textarea {
+  font-size: 16px;
 }
 
 .sr-only {

@@ -55,7 +55,7 @@ export function ChangePasswordPage() {
   return (
     <form
       onSubmit={onSubmit}
-      className="max-w-md space-y-3 rounded-lg border border-slate-200 bg-white p-6"
+      className="w-full max-w-md space-y-3 rounded-2xl border border-slate-200 bg-white p-5"
     >
       <h1 className="text-2xl font-semibold">Change Password</h1>
       <label htmlFor="current" className="block text-sm font-medium">
@@ -67,7 +67,7 @@ export function ChangePasswordPage() {
         value={oldPassword}
         onChange={(e) => setOldPassword(e.target.value)}
         required
-        className="w-full rounded border border-slate-300 px-3 py-2"
+        className="h-12 w-full rounded-xl border border-slate-300 px-3 text-base"
       />
       <label htmlFor="next" className="block text-sm font-medium">
         New Password
@@ -79,7 +79,7 @@ export function ChangePasswordPage() {
         onChange={(e) => setNewPassword(e.target.value)}
         required
         minLength={6}
-        className="w-full rounded border border-slate-300 px-3 py-2"
+        className="h-12 w-full rounded-xl border border-slate-300 px-3 text-base"
       />
       <label htmlFor="confirm" className="block text-sm font-medium">
         Confirm New Password
@@ -90,14 +90,14 @@ export function ChangePasswordPage() {
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         required
-        className="w-full rounded border border-slate-300 px-3 py-2"
+        className="h-12 w-full rounded-xl border border-slate-300 px-3 text-base"
       />
       <ErrorMessage message={error} />
       {message ? <p className="text-green-700">{message}</p> : null}
       <button
         type="submit"
         disabled={submitting}
-        className="rounded bg-sky-800 px-4 py-2 text-white disabled:opacity-60"
+        className="h-12 w-full rounded-xl bg-sky-800 font-semibold text-white disabled:opacity-60"
       >
         {submitting ? 'Saving...' : 'Update password'}
       </button>

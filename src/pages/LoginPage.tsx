@@ -41,16 +41,26 @@ export function LoginPage() {
   }
 
   return (
-    <main className="grid min-h-screen place-items-center bg-slate-100 p-4">
+    <main
+      className="grid min-h-dvh place-items-center bg-sky-950 px-4"
+      style={{
+        paddingTop: 'calc(var(--safe-top) + 1rem)',
+        paddingBottom: 'calc(var(--safe-bottom) + 1rem)',
+      }}
+    >
       <form
         onSubmit={onSubmit}
-        className="w-full max-w-md space-y-3 rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+        className="w-full max-w-md space-y-4 rounded-2xl bg-white p-5 shadow-lg sm:p-7"
       >
-        <div className="flex items-center gap-2 text-sky-800">
-          <Droplets className="h-6 w-6" aria-hidden="true" />
-          <h1 className="text-2xl font-semibold">Bhopal Smart Water</h1>
+        <div className="flex items-center gap-3 text-sky-900">
+          <span className="grid h-12 w-12 place-items-center rounded-2xl bg-sky-100">
+            <Droplets className="h-7 w-7" aria-hidden="true" />
+          </span>
+          <div>
+            <h1 className="text-xl font-semibold sm:text-2xl">Bhopal Smart Water</h1>
+            <p className="text-sm text-slate-500">Municipal tank monitoring</p>
+          </div>
         </div>
-        <p className="text-sm text-slate-500">Municipal water tank monitoring</p>
 
         <label htmlFor="username" className="block text-sm font-medium">
           Username
@@ -59,10 +69,13 @@ export function LoginPage() {
           id="username"
           name="username"
           autoComplete="username"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck={false}
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
           required
-          className="w-full rounded border border-slate-300 px-3 py-2"
+          className="h-12 w-full rounded-xl border border-slate-300 px-3 text-base"
         />
 
         <label htmlFor="password" className="block text-sm font-medium">
@@ -77,15 +90,15 @@ export function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full rounded border border-slate-300 px-3 py-2"
+            className="h-12 min-w-0 flex-1 rounded-xl border border-slate-300 px-3 text-base"
           />
           <button
             type="button"
-            className="rounded border border-slate-300 px-3"
+            className="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-slate-300"
             onClick={() => setShowPassword((v) => !v)}
             aria-label={showPassword ? 'Hide password' : 'Show password'}
           >
-            {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+            {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
           </button>
         </div>
 
@@ -94,7 +107,7 @@ export function LoginPage() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full rounded bg-sky-800 px-3 py-2 text-white disabled:opacity-60"
+          className="h-12 w-full rounded-xl bg-sky-800 text-base font-semibold text-white disabled:opacity-60"
         >
           {submitting ? 'Signing in...' : 'Sign In'}
         </button>

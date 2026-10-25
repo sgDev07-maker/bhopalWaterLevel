@@ -9,10 +9,9 @@ export function ZonesPage() {
 
   return (
     <div>
-      <h1 className="mb-4 text-2xl font-semibold">Zones</h1>
-      <p className="mb-3 text-slate-600">
-        Select a zone to view live tank levels. There is no Zone 18 in the
-        source application.
+      <h1 className="mb-2 text-2xl font-semibold">Zones</h1>
+      <p className="mb-3 text-sm text-slate-600">
+        Swipe the zone chips, then read live levels in the list. Zone 18 is not in the source app.
       </p>
       <div className="mb-4">
         <ZoneSelector value={tanks.zone} onChange={tanks.setZone} />
@@ -29,7 +28,9 @@ export function ZonesPage() {
         onAutoRefresh={tanks.setAutoRefresh}
         onRefresh={() => void tanks.loadReadings(true)}
       />
-      <ErrorMessage message={tanks.notice} />
+      <div className="mb-3">
+        <ErrorMessage message={tanks.notice} />
+      </div>
       <TankTable
         tanks={tanks.filtered}
         loading={tanks.loading}

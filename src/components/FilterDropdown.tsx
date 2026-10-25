@@ -12,13 +12,13 @@ export function FilterDropdown({
   options: { value: string; label: string }[];
 }) {
   return (
-    <label>
-      <span className="sr-only">{label}</span>
+    <label className="block min-w-0 flex-1">
+      <span className="mb-1 block text-sm font-medium text-slate-600">{label}</span>
       <select
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="rounded border border-slate-300 bg-white px-3 py-2"
+        className="h-12 w-full rounded-xl border border-slate-300 bg-white px-3 text-base"
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>
