@@ -10,10 +10,6 @@
       "destination": "https://userauth.revolutioninfosystems.com/api/UserAuthAPI/changepass"
     },
     {
-      "source": "/api/analog/:path*",
-      "destination": "https://117.247.49.204/AppAnalogTagSVR/:path*"
-    },
-    {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
